@@ -1,94 +1,24 @@
 # GOG Achievements Manager
 
-This is a Go cli application allows you to manage GOG achievements manager.
-
-Features:
-
-- list all achievements, locked and unlocked
-- unlock a locked achievement
+A Python CLI for viewing, unlocking, and clearing GOG achievements.
 
 ## Requirements
 
-- Go 1.21 or later
-- Windows OS (uses Windows Registry for GOG Galaxy token)
+- Python 3.10 or later
+- Windows with GOG Galaxy installed and signed in (the refresh token is read from the Windows registry)
 
-## Installation
+## CLI
 
-1. Install dependencies:
-
-```bash
-go mod download
+```powershell
+py -m gog_achievements
+py -m gog_achievements <game-id>
+py -m gog_achievements <game-id> <achievement-id> [achievement-id ...]
+py -m gog_achievements <game-id> -c <achievement-id> [achievement-id ...]
+py -m gog_achievements -v <game-id>
 ```
 
-1. Build the application:
+For example, `py -m gog_achievements 1558393671` lists a game's unlocked and locked achievements. Add achievement IDs to unlock them, or pass `-c` to clear (lock) them.
 
-```bash
-go build -o gog-achievements.exe main.go
-```
+## Authentication and cache
 
-## Usage
-
-### List all owned games
-
-```bash
-./gog-achievements.exe
-```
-
-### View all achievements for a game
-
-```bash
-./gog-achievements.exe <game-id>
-```
-
-### Unlock one or more achievements
-
-```bash
-./gog-achievements.exe <game-id> <achievement-id> [achievement-id] ...
-```
-
-### Clear one or more achievements
-
-```bash
-./gog-achievements.exe <game-id> -c <achievement-id> [achievement-id] ...
-```
-
-### Enable verbose logging
-
-Add the `-v` flag to any command to enable verbose logging:
-
-```bash
-./gog-achievements.exe -v
-./gog-achievements.exe <game-id> -v
-./gog-achievements.exe <game-id> <achievement-id> -v
-```
-
-## Examples
-
-```bash
-# List all games you own
-./gog-achievements.exe
-
-# List achievements for Hollow Knight: Silksong (game ID 1558393671)
-./gog-achievements.exe 1558393671
-
-# Unlock achievement Fanatic (ID 58889697238411342)
-./gog-achievements.exe 1558393671 58889697238411342
-
-# Unlock multiple achievements at once
-./gog-achievements.exe 1558393671 58889697238411342 12345678901234567
-
-# List achievements with verbose output
-./gog-achievements.exe 1558393671 -v
-```
-
-## How it works
-
-1. Reads the GOG Galaxy refresh token from Windows Registry
-2. Authenticates with GOG servers
-3. Retrieves product data from GOGDB.org
-4. Lists or unlocks achievements via GOG's gameplay API
-
-## Notes
-
-- API call results are cached in `auths.json` (for Auth) and `products.json` (for GOGDB) in the same directory as the executable
-- GOG Galaxy refresh token is used for authentication, please verify that you are logged in.
+The application reads the GOG Galaxy refresh token from `HKCU\Software\GOG.com\Galaxy`, then calls GOG's authentication and gameplay APIs and GOGDB.org. Authentication and product credentials are cached as `auths.json` and `products.json` beside the launched application. An active internet connection is required.
