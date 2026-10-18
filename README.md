@@ -1,6 +1,6 @@
-# GOG Achievements Manager
+# GOG achievements for Python
 
-A Python CLI for viewing, unlocking, and clearing GOG achievements.
+A Python CLI for viewing, unlocking, and clearing GOG achievements, rewritten from the original GOG Achievements Manager.
 
 ## Requirements
 

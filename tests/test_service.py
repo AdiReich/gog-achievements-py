@@ -3,8 +3,8 @@ from threading import Barrier
 from unittest.mock import patch
 from urllib.parse import parse_qs, urlparse
 
-from gog_achievements.models import AuthResponse
-from gog_achievements.service import GOGClient, GOGError
+from gog_achievements_py.models import AuthResponse
+from gog_achievements_py.service import GOGClient, GOGError
 
 
 class AuthenticationTests(unittest.TestCase):
