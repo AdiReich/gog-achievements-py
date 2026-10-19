@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+gog_achievements.egg-info/PKG-INFO
+gog_achievements.egg-info/SOURCES.txt
+gog_achievements.egg-info/dependency_links.txt
+gog_achievements.egg-info/entry_points.txt
+gog_achievements.egg-info/top_level.txt
+gog_achievements_py/__init__.py
+gog_achievements_py/__main__.py
+gog_achievements_py/cli.py
+gog_achievements_py/models.py
+gog_achievements_py/registry.py
+gog_achievements_py/service.py
+tests/test_service.py
