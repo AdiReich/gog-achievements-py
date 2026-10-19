@@ -12,7 +12,7 @@ class AuthenticationTests(unittest.TestCase):
         client = GOGClient()
         with (
             patch(
-                "gog_achievements.service._load_default_client_credentials",
+                "gog_achievements_py.service._load_default_client_credentials",
                 return_value=("client-id", "client-secret"),
             ) as load_credentials,
             patch.object(client, "_read_cache", return_value={}),

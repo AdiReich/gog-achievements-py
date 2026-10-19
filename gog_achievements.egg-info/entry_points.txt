@@ -1,2 +1,2 @@
 [console_scripts]
-gog-achievements = gog_achievements.cli:main
+gog-achievements = gog_achievements_py.cli:main

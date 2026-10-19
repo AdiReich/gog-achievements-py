@@ -3,17 +3,17 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gog-achievements"
+name = "gog-achievements-py"
 version = "1.0.0"
 description = "Manage GOG Galaxy achievements"
 requires-python = ">=3.10"
 dependencies = []
 
 [project.scripts]
-gog-achievements = "gog_achievements.cli:main"
+gog-achievements = "gog_achievements_py.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["gog_achievements*"]
+include = ["gog_achievements_py*"]
 
 [tool.setuptools.package-data]
-gog_achievements = ["gog_client_credentials.json"]
+gog_achievements_py = ["gog_client_credentials.json"]

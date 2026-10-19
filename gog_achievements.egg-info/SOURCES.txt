@@ -8,6 +8,7 @@ gog_achievements.egg-info/top_level.txt
 gog_achievements_py/__init__.py
 gog_achievements_py/__main__.py
 gog_achievements_py/cli.py
+gog_achievements_py/gog_client_credentials.json
 gog_achievements_py/models.py
 gog_achievements_py/registry.py
 gog_achievements_py/service.py
